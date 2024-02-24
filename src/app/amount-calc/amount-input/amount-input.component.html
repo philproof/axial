@@ -1,0 +1,43 @@
+<section>
+  <form (ngSubmit)="onSubmit()">
+    <div class="input">
+      <label for="amount" class="home__amount-label">Input Amount</label>
+      <input
+        id="amount"
+        type="text"
+        class="home__amount-input"
+        [formControl]="amount"
+      />
+
+      <ng-container *ngIf="amount.hasError('required')">
+        <p class="home__input-info">
+          <i>Please input amount (ie: 150, 1k, 1.5k, etc)</i>
+        </p>
+      </ng-container>
+      <ng-container *ngIf="amount.hasError('pattern')">
+        <p class="home__form-error">
+          <i
+            >Please ensure a number with or without a single decimal and the
+            appropriate letter (k, m, b, t) if not hundreds</i
+          >
+        </p>
+      </ng-container>
+      <ng-container *ngIf="amount.hasError('validAmount')">
+        <p class="home__form-error">
+          <i> Using a decimal requires a letter at the end (ie: .5k, .25b). </i>
+        </p>
+      </ng-container>
+    </div>
+    <button type="submit" class="home__submit" [disabled]="!amount?.valid">
+      Submit
+    </button>
+    <button
+      type="button"
+      class="home__clear"
+      [disabled]="!amount?.value"
+      (click)="handleClear()"
+    >
+      Clear
+    </button>
+  </form>
+</section>

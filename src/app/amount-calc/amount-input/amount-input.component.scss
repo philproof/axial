@@ -1,0 +1,24 @@
+.input {
+  display: flex;
+  flex-direction: column;
+}
+.home__amount-label {
+  font-weight: bold;
+  font-size: larger;
+  width: auto;
+  margin-bottom: .5rem
+}
+.home__amount-input {
+  width: 10rem;
+}
+.home__input-info, .home__form-error {
+  margin: 0
+}
+.home__form-error {
+  color: red;
+}
+.home__submit, .home__clear {
+  margin: .5rem .5rem 0 0;
+  height: 2rem;
+  padding: 5px;
+}

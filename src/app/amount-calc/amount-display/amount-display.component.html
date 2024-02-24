@@ -1,0 +1,15 @@
+<section>
+  <label for="amount" class="display__label"
+    >Your formatted dollar amount:</label
+  >
+  <div id="amount" class="display__amount">
+    <ng-container *ngIf="finAmountService.getFinAmount()">
+      <p class="display__valid-amount">
+        {{ "$ " + (finAmountService.getFinAmount() | convertFinAmount) }}
+      </p>
+    </ng-container>
+  </div>
+  <button type="button" class="display__button" (click)="handleBackClick()">
+    Go To Input
+  </button>
+</section>
